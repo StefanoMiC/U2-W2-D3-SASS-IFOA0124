@@ -1,0 +1,42 @@
+// @mixin dynamicHeight($height, $padding) {
+//     width: 100px;
+//     height: $height - ($padding * 2);
+//     padding: $padding;
+//     background-color: black;
+//     color: white;
+//     display: inline-block;
+//     vertical-align: bottom;
+//   }
+@function dynamicHeightFn($height, $padding) {
+  @return $height - ($padding * 2);
+}
+
+@function createLongShadow($length, $color) {
+  $val: null;
+
+  @for $i from 1 through $length {
+    $val: $val, #{$i}px #{$i}px $color;
+  }
+
+  @return $val;
+}
+
+@function multipleBorders($list) {
+  $val: null;
+
+  @for $i from 1 through length($list) {
+    $val: $val, 0 0 0 #{$i * 10}px nth($list, $i);
+  }
+
+  @return $val;
+}
+
+@function multipleBordersSteps($color, $steps) {
+  $val: null;
+
+  @for $i from 1 through $steps {
+    $val: $val, 0 0 0 #{$i * 10}px scale-color($color, $lightness: $i * 5%);
+  }
+
+  @return $val;
+}

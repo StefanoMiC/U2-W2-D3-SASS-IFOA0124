@@ -1,0 +1,238 @@
+@charset "UTF-8";
+main {
+  padding: 1rem;
+}
+main h1 {
+  margin-block: 0;
+}
+main h1 span {
+  font-weight: 300;
+  font-style: italic;
+  color: rgb(232, 32, 78);
+}
+@media screen and (min-width: 992px) {
+  main h1 span {
+    color: rgb(32, 185, 232);
+  }
+}
+main ul li {
+  padding-block: 1rem;
+}
+main ul li::marker {
+  content: "✔️";
+}
+
+.main__title {
+  margin-bottom: 1rem;
+}
+.main__title__highlight {
+  text-decoration: underline;
+}
+.main__title__highlight:hover {
+  text-decoration: none;
+}
+
+.btn, .btn-lg {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+}
+.btn-first {
+  background-color: aqua;
+  border-color: aqua;
+}
+.btn-second {
+  background-color: coral;
+  border-color: coral;
+}
+.btn-last {
+  background-color: crimson;
+  border-color: crimson;
+}
+
+.btn-lg {
+  padding: 1rem 3rem;
+}
+
+.btn-for-mixin {
+  border-radius: 30px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background-color: purple;
+  color: #ffcdff;
+}
+.btn-for-mixin:nth-of-type(2) {
+  border-radius: 5px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  background-color: rgb(30, 0, 255);
+  color: #e2deff;
+}
+
+.box:first-of-type {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: crimson;
+  text-align: center;
+}
+
+.box:nth-of-type(2) {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background-color: rgb(0, 149, 255);
+  text-align: center;
+}
+
+.box:nth-of-type(3) {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  background-image: url(https://images.unsplash.com/photo-1707845696801-4d4b89e510fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-size: cover;
+}
+
+.dynamic-height {
+  width: 100px;
+  height: 170px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.dynamic-height-fn {
+  width: 100px;
+  height: 170px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.dynamic-min-height-fn {
+  width: 100px;
+  min-height: 170px;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+}
+@media screen and (min-width: 1200px) {
+  .dynamic-min-height-fn {
+    min-height: 240px;
+    padding: 30px;
+  }
+}
+
+.custom-p-1 {
+  padding: 2rem;
+}
+
+.custom-m-1 {
+  margin: 10px;
+}
+
+.custom-p-2 {
+  padding: 4rem;
+}
+
+.custom-m-2 {
+  margin: 20px;
+}
+
+.custom-p-3 {
+  padding: 6rem;
+}
+
+.custom-m-3 {
+  margin: 30px;
+}
+
+.custom-p-4 {
+  padding: 8rem;
+}
+
+.custom-m-4 {
+  margin: 40px;
+}
+
+.custom-p-5 {
+  padding: 10rem;
+}
+
+.custom-m-5 {
+  margin: 50px;
+}
+
+.box-red {
+  background-color: #ff0000;
+}
+
+.box-green {
+  background-color: #008000;
+}
+
+.box-blue {
+  background-color: #0000ff;
+}
+
+.padding-inline-xs {
+  padding-inline: 10rem;
+}
+
+.padding-inline-sm {
+  padding-inline: 20rem;
+}
+
+.padding-inline-md {
+  padding-inline: 30rem;
+}
+
+.padding-inline-lg {
+  padding-inline: 60rem;
+}
+
+.padding-inline-xl {
+  padding-inline: 100rem;
+}
+
+#long-shadow h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(232, 32, 78);
+  text-align: center;
+  text-shadow: 1px 1px purple, 2px 2px purple, 3px 3px purple, 4px 4px purple, 5px 5px purple, 6px 6px purple, 7px 7px purple, 8px 8px purple, 9px 9px purple, 10px 10px purple, 11px 11px purple, 12px 12px purple, 13px 13px purple, 14px 14px purple, 15px 15px purple, 16px 16px purple, 17px 17px purple, 18px 18px purple, 19px 19px purple, 20px 20px purple, 21px 21px purple, 22px 22px purple, 23px 23px purple, 24px 24px purple, 25px 25px purple, 26px 26px purple, 27px 27px purple, 28px 28px purple, 29px 29px purple, 30px 30px purple, 31px 31px purple, 32px 32px purple, 33px 33px purple, 34px 34px purple, 35px 35px purple, 36px 36px purple, 37px 37px purple, 38px 38px purple, 39px 39px purple, 40px 40px purple, 41px 41px purple, 42px 42px purple, 43px 43px purple, 44px 44px purple, 45px 45px purple, 46px 46px purple, 47px 47px purple, 48px 48px purple, 49px 49px purple, 50px 50px purple, 51px 51px purple, 52px 52px purple, 53px 53px purple, 54px 54px purple, 55px 55px purple, 56px 56px purple, 57px 57px purple, 58px 58px purple, 59px 59px purple, 60px 60px purple, 61px 61px purple, 62px 62px purple, 63px 63px purple, 64px 64px purple, 65px 65px purple, 66px 66px purple, 67px 67px purple, 68px 68px purple, 69px 69px purple, 70px 70px purple, 71px 71px purple, 72px 72px purple, 73px 73px purple, 74px 74px purple, 75px 75px purple, 76px 76px purple, 77px 77px purple, 78px 78px purple, 79px 79px purple, 80px 80px purple, 81px 81px purple, 82px 82px purple, 83px 83px purple, 84px 84px purple, 85px 85px purple, 86px 86px purple, 87px 87px purple, 88px 88px purple, 89px 89px purple, 90px 90px purple, 91px 91px purple, 92px 92px purple, 93px 93px purple, 94px 94px purple, 95px 95px purple, 96px 96px purple, 97px 97px purple, 98px 98px purple, 99px 99px purple, 100px 100px purple;
+  padding-block: 100px;
+}
+
+#mutiple-borders {
+  text-align: center;
+  padding-block: 100px;
+}
+#mutiple-borders .box {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: black;
+  text-align: center;
+  box-shadow: 0 0 0 10px red, 0 0 0 20px blue, 0 0 0 30px green, 0 0 0 40px yellow, 0 0 0 50px purple, 0 0 0 60px black, 0 0 0 70px coral, 0 0 0 80px aqua, 0 0 0 90px palegoldenrod;
+}
+
+#mutiple-borders-steps {
+  text-align: center;
+  padding-block: 200px;
+}
+#mutiple-borders-steps .box {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-color: black;
+  text-align: center;
+  box-shadow: 0 0 0 10px #0dff6e, 0 0 0 20px #1aff75, 0 0 0 30px #26ff7d, 0 0 0 40px #33ff85, 0 0 0 50px #40ff8c, 0 0 0 60px #4dff94, 0 0 0 70px #59ff9c, 0 0 0 80px #66ffa3, 0 0 0 90px #73ffab, 0 0 0 100px #80ffb3, 0 0 0 110px #8cffba, 0 0 0 120px #99ffc2, 0 0 0 130px #a6ffc9, 0 0 0 140px #b3ffd1, 0 0 0 150px #bfffd9, 0 0 0 160px #ccffe0, 0 0 0 170px #d9ffe8, 0 0 0 180px #e6fff0, 0 0 0 190px #f2fff7, 0 0 0 200px white;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,30 @@
+// MIXINS - è una struttura che applicherà un blocco di codice CSS, con la possibilità di rendere questo blocco DINAMICO attraverso l'uso di parametri
+@mixin rounded-shadow($radius: 5px, $shadow: 0 3px 8px rgb(0 0 0 / 30%), $color: black) {
+  border-radius: $radius;
+  box-shadow: $shadow;
+  background-color: $color;
+  color: scale-color($color, $lightness: 87%);
+}
+
+@mixin dynimicBox($value, $bg-type, $size: 100px) {
+  width: $size;
+  height: $size;
+  display: inline-block;
+  background-#{$bg-type}: $value;
+
+  @if ($bg-type == "image") {
+    background-size: cover;
+  } @else {
+    text-align: center;
+  }
+}
+
+@mixin dynamicHeight($height, $padding) {
+  width: 100px;
+  height: $height - ($padding * 2);
+  padding: $padding;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+}

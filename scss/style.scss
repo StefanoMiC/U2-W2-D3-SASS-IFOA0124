@@ -1,0 +1,221 @@
+@import "./partials/mixins";
+@import "./partials/functions";
+
+$red: rgb(232, 32, 78);
+$azure: rgb(32, 185, 232);
+// main h1 {
+//   margin-block: 0;
+// }
+
+// main h1 span {
+//   font-weight: bold;
+//   color: rgb(232, 32, 78);
+// }
+
+// NESTING CSS SELECTORS
+main {
+  padding: 1rem;
+  h1 {
+    margin-block: 0;
+    span {
+      font: {
+        weight: 300;
+        style: italic;
+      }
+
+      color: $red;
+
+      @media screen and (min-width: 992px) {
+        color: $azure;
+      }
+    }
+  }
+
+  ul {
+    li {
+      padding-block: 1rem;
+
+      // Parent selector (&) richiama il genitore
+      &::marker {
+        content: "✔️";
+      }
+    }
+  }
+}
+
+.main {
+  &__title {
+    margin-bottom: 1rem;
+    &__highlight {
+      text-decoration: underline;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Placeholders - sono contenitori di regole css che da soli non creano nulla nel css finale,
+// devono essere applicati da qualche parte perché le loro proprietà comincino ad esistere nel css finale
+%rounded-and-shadow {
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 30%);
+}
+
+.btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  //   @extend %rounded-and-shadow;
+
+  &-first {
+    background-color: aqua;
+    border-color: aqua;
+  }
+  &-second {
+    background-color: coral;
+    border-color: coral;
+  }
+  &-last {
+    background-color: crimson;
+    border-color: crimson;
+  }
+
+  //   &:first-of-type {
+  //   }
+  //   &:nth-of-type(2) {
+  //   }
+  //   &:last-of-type {
+  //   }
+}
+
+.btn-lg {
+  @extend .btn;
+
+  padding: 1rem 3rem;
+}
+
+.btn-for-mixin {
+  @include rounded-shadow(30px, 0 6px 12px rgb(0 0 0 / 40%), purple);
+
+  &:nth-of-type(2) {
+    @include rounded-shadow($color: rgb(30, 0, 255));
+  }
+}
+
+.box:first-of-type {
+  @include dynimicBox(crimson, "color");
+}
+.box:nth-of-type(2) {
+  @include dynimicBox(rgb(0, 149, 255), "color", 200px);
+}
+.box:nth-of-type(3) {
+  @include dynimicBox(url(https://images.unsplash.com/photo-1707845696801-4d4b89e510fa?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D), "image", 200px);
+}
+
+.dynamic-height {
+  @include dynamicHeight(200px, 15px);
+}
+
+.dynamic-height-fn {
+  width: 100px;
+  height: dynamicHeightFn(200px, 15px);
+  padding: 15px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.dynamic-min-height-fn {
+  width: 100px;
+  min-height: dynamicHeightFn(200px, 15px);
+  padding: 15px;
+  background-color: black;
+  color: white;
+  display: inline-block;
+  vertical-align: bottom;
+
+  @media screen and (min-width: 1200px) {
+    min-height: dynamicHeightFn(300px, 30px);
+    padding: 30px;
+  }
+}
+
+// CICLO FOR
+
+// @for $contatore from 0 to 5; <start> to <end> dove <end> è escluso se si usa "to"
+// @for $contatore from 0 through 5; <start> through <end> dove <end> è incluso se si usa "through"
+
+@for $i from 1 through 5 {
+  .custom-p-#{$i} {
+    padding: $i * 2rem;
+  }
+
+  .custom-m-#{$i} {
+    margin: $i * 10px;
+  }
+}
+
+// CICLO EACH
+$colors: (
+  red: #ff0000,
+  green: #008000,
+  blue: #0000ff
+);
+
+@each $name, $value in $colors {
+  .box-#{$name} {
+    background-color: $value;
+  }
+}
+
+$sizes: (
+  xs: 10,
+  sm: 20,
+  md: 30,
+  lg: 60,
+  xl: 100
+);
+
+@each $key, $value in $sizes {
+  .padding-inline-#{$key} {
+    padding-inline: $value * 1rem;
+  }
+}
+
+#long-shadow {
+  h2 {
+    font: {
+      family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      weight: 900;
+      size: 30px;
+    }
+    color: $red;
+    text-align: center;
+    text-shadow: createLongShadow(100, purple);
+    padding-block: 100px;
+  }
+}
+
+$colors: red, blue, green, yellow, purple, black, coral, aqua, palegoldenrod;
+
+#mutiple-borders {
+  text-align: center;
+  padding-block: 100px;
+  .box {
+    @include dynimicBox(black, "color");
+
+    box-shadow: multipleBorders($colors);
+  }
+}
+
+#mutiple-borders-steps {
+  text-align: center;
+  padding-block: 200px;
+  .box {
+    @include dynimicBox(black, "color");
+
+    box-shadow: multipleBordersSteps(rgb(0, 255, 102), 20);
+  }
+}
